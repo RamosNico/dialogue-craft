@@ -19,13 +19,18 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
 
       <div className="min-h-screen bg-slate-700">
-        <Sidebar />
-        <main className="lg:ml-64 flex-grow h-screen bg-slate-700">
+      <Sidebar />
+      <main className="lg:ml-64 flex-grow py-4 h-screen">
+        <div className="mx-auto max-w-6xl p-6 flex flex-col gap-8 rounded-lg shadow-md bg-slate-800">
           <Component {...pageProps} />
-        </main>
+        </div>
+      </main>
       </div>
 
-      <Script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js" strategy="beforeInteractive" />
+      <Script
+        src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"
+        strategy="beforeInteractive"
+      />
     </>
   );
 }
