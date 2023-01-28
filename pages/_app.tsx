@@ -2,6 +2,7 @@ import Head from "next/head";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import Sidebar from "@/components/layout/sidebar";
+import { useState } from "react";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -17,9 +18,9 @@ export default function App({ Component, pageProps }: AppProps) {
         />
       </Head>
 
-      <div className="min-h-screen flex">
+      <div className="min-h-screen bg-slate-700">
         <Sidebar />
-        <main className="flex-grow h-screen bg-slate-700">
+        <main className="sm:ml-64 flex-grow h-screen bg-slate-700">
           <Component {...pageProps} />
         </main>
       </div>
