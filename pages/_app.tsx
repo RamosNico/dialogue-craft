@@ -2,7 +2,7 @@ import Head from "next/head";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import Sidebar from "@/components/layout/sidebar";
-import { useState } from "react";
+import Script from "next/script";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -20,13 +20,12 @@ export default function App({ Component, pageProps }: AppProps) {
 
       <div className="min-h-screen bg-slate-700">
         <Sidebar />
-        <main className="sm:ml-64 flex-grow h-screen bg-slate-700">
+        <main className="lg:ml-64 flex-grow h-screen bg-slate-700">
           <Component {...pageProps} />
         </main>
       </div>
 
-      {/* <script src="../node_modules/flowbite/dist/flowbite.min.js"></script> */}
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
+      <Script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js" strategy="beforeInteractive" />
     </>
   );
 }
