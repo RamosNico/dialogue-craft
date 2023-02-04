@@ -43,7 +43,7 @@ export default function CharactersPage() {
       <div className="flex gap-6">
         <Button
           className="w-full bg-blue-700 hover:bg-blue-600 disabled:bg-blue-700 disabled:hover:bg-blue-700 transition-all"
-          onClick={() => addChar({ id: charList[charList.length - 1].id + 1, ...newChar })}
+          onClick={() => addChar({ ...newChar })}
         >
           Add new character
         </Button>

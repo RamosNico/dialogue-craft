@@ -27,12 +27,19 @@ const initialList: Character[] = [
 const useCharactersList = () => {
   const [charList, setCharList] = useState(initialList || []);
 
-  const addChar = (obj: Character) => {
-    return setCharList((prev) => ([ ...prev, obj ]));
-  }
+  type AddParams = { name: string; age: number; description: string };
+  const addChar = ({ name, age, description }: AddParams) => {
+    const newChar = {
+      id: charList[charList.length - 1]?.id + 1 || 0,
+      name: name,
+      age: age,
+      description: description,
+    };
+    return setCharList((prev) => [...prev, newChar]);
+  };
 
   const removeChar = (id: Character["id"]) => {
-    return setCharList(charList.filter(char => char.id !== id));
+    return setCharList(charList.filter((char) => char.id !== id));
   };
 
   return { charList, addChar, removeChar };
