@@ -16,12 +16,12 @@ export default function Home() {
   };
 
   return (
-    <>
-      <h1 className="text-5xl font-bold">Get a new dialog</h1>
+    <div className="flex flex-col">
+      <h1 className="mb-6 text-5xl font-bold">Get a new dialog</h1>
       <p>Here you will input your characters and description</p>
 
       <Button
-        className="bg-cyan-700 hover:bg-cyan-600 disabled:bg-cyan-700 disabled:hover:bg-cyan-700 transition-all"
+        className="mt-8 bg-cyan-700 hover:bg-cyan-600 disabled:bg-cyan-700 disabled:hover:bg-cyan-700 transition-all"
         onClick={fetchData}
         disabled={isLoading}
       >
@@ -38,6 +38,6 @@ export default function Home() {
       {data && (
         <pre className="max-w-[70ch] whitespace-pre-wrap leading-9">{data}</pre>
       )}
-    </>
+    </div>
   );
 }
