@@ -1,5 +1,6 @@
 import cohere from "cohere-ai";
 import { useState } from "react";
+import axios from "axios";
 
 const useCohere = (input: {} = {}) => {
   cohere.init(process.env.cohereKey as string);
@@ -12,7 +13,7 @@ const useCohere = (input: {} = {}) => {
     prompt:
       "We have two persons:\n- Nicolas, age 26, an arrogant and romantic man\n- Melisa, age 24, a sensitive and talkative woman\nWrite me a conversation between these two persons for a movie script in the style where they are a couple discussing what they are having for dinner, he calls her honey and she calls him sweetie. Where they end up deciding to eat hot dogs.",
     max_tokens: 416,
-    temperature: 1.2,
+    temperature: 1.1,
     k: 0,
     p: 0.75,
     frequency_penalty: 0,
@@ -21,29 +22,25 @@ const useCohere = (input: {} = {}) => {
     return_likelihoods: "NONE",
   };
 
-  const fetchData = async () => {
+  const fetchData = () => {
     setIsLoading(true);
     setData("");
     setError("");
-    try {
-      const response = await fetch(process.env.cohereGenerateUrl as string, {
-        method: "POST",
-        headers: {
-          Authorization: `BEARER ${process.env.cohereKey}`,
-          "Content-Type": "application/json",
-          "Cohere-Version": "2022-12-06",
-        },
-        body: JSON.stringify(body),
-      });
-      if (!response.ok) throw new Error("Something went wrong with the API");
-      const result = await response.json();
-
+    axios.post(process.env.cohereGenerateUrl as string, body, {
+      headers: {
+        Authorization: `BEARER ${process.env.cohereKey}`,
+        "Content-Type": "application/json",
+        "Cohere-Version": "2022-12-06",
+      },
+    })
+    .then((response) => {
       setIsLoading(false);
-      setData(result.generations[0].text.trim());
-    } catch (err) {
+      setData(response.data.generations[0].text.trim());
+    })
+    .catch(error => {
       setIsLoading(false);
-      setError(err as string);
-    }
+      setError(error);
+    });
   };
 
   return { data, error, isLoading, fetchData };
