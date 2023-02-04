@@ -15,12 +15,6 @@ export default function Home() {
     return newStr;
   };
 
-  const newChar = {
-    name: "Rodrigo",
-    age: 24,
-    description: "A man who just came to this world from an outer one and does not remember anything."
-  };
-
   return (
     <>
       <h1 className="text-5xl font-bold">Get a new dialog</h1>
