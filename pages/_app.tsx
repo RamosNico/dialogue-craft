@@ -16,7 +16,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
       <Sidebar />
       <main className="lg:ml-64 flex-grow py-4 h-screen">
-        <div className="mx-auto max-w-6xl p-6 rounded-lg shadow-md bg-slate-800">
+        <div className="mx-auto max-w-5xl p-6 rounded-lg shadow-md bg-slate-800">
           <Component {...pageProps} />
         </div>
       </main>
