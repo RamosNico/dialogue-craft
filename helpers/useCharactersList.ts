@@ -21,7 +21,7 @@ const initialList: Character[] = [
 const useCharactersList = () => {
   const [charList, setCharList] = useState(initialList || []);
 
-  type AddParams = { name: string; age: number; description: string };
+  interface AddParams extends Omit<Character, "id"> {}
   const addChar = ({ name, age, description }: AddParams) => {
     const newChar = {
       id: charList[charList.length - 1]?.id + 1 || 0,
