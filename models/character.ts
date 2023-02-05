@@ -1,8 +1,6 @@
-type Character = {
+export default interface Character {
   id: number;
   name: string;
-  age: number;
+  age: number | undefined;
   description: string;
 };
-
-export default Character;
