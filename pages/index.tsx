@@ -14,9 +14,9 @@ export default function Home() {
       <DialogForm isLoading={isLoading} fetchData={(p: string) => fetchData(p)} />
 
       {data && (
-        <div className="mt-8 bg-slate-700 p-4 rounded-lg">
+        <section className="mt-8 bg-slate-700 p-4 rounded-lg">
           <pre className="max-w-[70ch] whitespace-pre-wrap leading-9">{data}</pre>
-        </div>
+        </section>
       )}
     </div>
   );
