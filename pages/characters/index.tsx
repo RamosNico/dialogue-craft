@@ -30,7 +30,6 @@ export default function CharactersPage() {
     <>
       <h1 className="mb-6 text-5xl font-bold">Characters</h1>
       <p className="mb-4">Here's a list with your current characters:</p>
-
       <CharactersTable charList={charList} removeChar={removeChar} />
 
       <h2 className="mt-6 mb-3 text-3xl font-bold">Add new character</h2>
@@ -82,10 +81,10 @@ export default function CharactersPage() {
           />
         </div>
         <Button
-          className="mt-8 w-full bg-blue-700 hover:bg-blue-600 disabled:bg-blue-700 disabled:hover:bg-blue-700 transition-all"
+          className="mt-8 w-full bg-cyan-700 hover:bg-cyan-600 disabled:bg-cyan-700 disabled:hover:bg-cyan-700 transition-all"
           type="submit"
         >
-          Add new character
+          <span className="text-base">Add new character</span>
         </Button>
       </form>
     </>
