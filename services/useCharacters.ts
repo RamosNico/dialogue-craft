@@ -20,7 +20,7 @@ const initialList: Character[] = [
 
 interface AddParams extends Omit<Character, "id"> {}
 
-const useCharactersList = () => {
+const useCharacters = () => {
   const [charList, setCharList] = useState<Character[] | []>([]);
 
   useEffect(() => {
@@ -56,4 +56,4 @@ const useCharactersList = () => {
   return { charList, addChar, removeChar };
 };
 
-export default useCharactersList;
+export default useCharacters;
