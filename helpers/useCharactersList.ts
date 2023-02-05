@@ -1,11 +1,5 @@
 import { useState } from "react";
-
-type Character = {
-  id: number;
-  name: string;
-  age: number;
-  description: string;
-};
+import Character from "@/models/character";
 
 const initialList: Character[] = [
   {
