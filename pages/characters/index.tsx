@@ -15,7 +15,7 @@ export default function CharactersPage() {
   });
 
   const charPlaceholder = {
-    name: "Rodrigo",
+    name: "Charlie",
     age: 24,
     description:
       "A man who just came to this world from an outer one and does not remember anything.",
