@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Character from "@/models/character";
 
 const initialList: Character[] = [
@@ -19,7 +19,14 @@ const initialList: Character[] = [
 ];
 
 const useCharactersList = () => {
-  const [charList, setCharList] = useState(initialList || []);
+  const [charList, setCharList] = useState<Character[] | []>([]);
+
+  useEffect(() => {
+    const characters: Character[] | [] = JSON.parse(
+      localStorage.getItem("characters") || "[]"
+    );
+    setCharList(characters.length > 0 ? characters : initialList);
+  }, []);
 
   interface AddParams extends Omit<Character, "id"> {}
   const addChar = ({ name, age, description }: AddParams) => {
@@ -29,11 +36,20 @@ const useCharactersList = () => {
       age: age,
       description: description,
     };
-    return setCharList((prev) => [...prev, newChar]);
+
+    setCharList((prev) => {
+      const newArr = [...prev, newChar];
+      localStorage.setItem("characters", JSON.stringify(newArr));
+      return newArr;
+    });
   };
 
   const removeChar = (id: Character["id"]) => {
-    return setCharList(charList.filter((char) => char.id !== id));
+    return setCharList((prev) => {
+      const newArr = prev.filter((char) => char.id !== id);
+      localStorage.setItem("characters", JSON.stringify(newArr));
+      return newArr;
+    });
   };
 
   return { charList, addChar, removeChar };
