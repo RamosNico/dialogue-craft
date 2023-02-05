@@ -7,7 +7,7 @@ import { useState } from "react";
 interface NewChar extends Omit<Character, "id"> {}
 
 export default function CharactersPage() {
-  const { charList, addChar, removeChar } = useCharacters();
+  const { charList, addChar, removeChar, resetChars } = useCharacters();
   const [newChar, setNewChar] = useState<NewChar>({
     name: "",
     age: undefined,
@@ -32,6 +32,7 @@ export default function CharactersPage() {
       <section>
         <p className="mb-4">Here's a list with your current characters:</p>
         <CharactersTable charList={charList} removeChar={removeChar} />
+        <p className="mt-3 w-fit text-gray-300 text-sm cursor-pointer hover:text-cyan-400 transition-all" onClick={resetChars}>Click here to restart the characters list</p>
       </section>
 
       <section>
@@ -48,9 +49,7 @@ export default function CharactersPage() {
                 id="charName"
                 placeholder={charPlaceholder.name}
                 value={newChar?.name}
-                onChange={(e) =>
-                  setNewChar({ ...newChar, name: e.target.value })
-                }
+                onChange={(e) => setNewChar({ ...newChar, name: e.target.value })}
                 required
               />
             </div>
