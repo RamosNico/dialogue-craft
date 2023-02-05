@@ -24,10 +24,8 @@ const useCharacters = () => {
   const [charList, setCharList] = useState<Character[] | []>([]);
 
   useEffect(() => {
-    const characters: Character[] | [] = JSON.parse(
-      localStorage.getItem("characters") || "[]"
-    );
-    setCharList(characters.length > 0 ? characters : initialList);
+    const characters: Character[] | null = JSON.parse(localStorage.getItem("characters") || "null");
+    setCharList(characters || initialList);
   }, []);
 
   const addChar = ({ name, age, description }: AddParams) => {
@@ -53,7 +51,12 @@ const useCharacters = () => {
     });
   };
 
-  return { charList, addChar, removeChar };
+  const resetChars = () => {
+    setCharList(initialList);
+    localStorage.setItem("characters", JSON.stringify(initialList));
+  }
+
+  return { charList, addChar, removeChar, resetChars };
 };
 
 export default useCharacters;
