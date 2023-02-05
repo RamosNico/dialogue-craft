@@ -1,13 +1,16 @@
 import CharactersTable from "@/components/characters/characters-table";
 import useCharactersList from "@/helpers/useCharactersList";
-import { Button, Label, TextInput, Textarea } from "flowbite-react";
+import Character from "@/models/character";
+import { Button, Label } from "flowbite-react";
 import { useState } from "react";
+
+interface NewChar extends Omit<Character, "id"> {};
 
 export default function CharactersPage() {
   const { charList, addChar, removeChar } = useCharactersList();
-  const [newChar, setNewChar] = useState({
+  const [newChar, setNewChar] = useState<NewChar>({
     name: "",
-    age: 42,
+    age: undefined,
     description: "",
   });
 
@@ -18,6 +21,11 @@ export default function CharactersPage() {
       "A man who just came to this world from an outer one and does not remember anything.",
   };
 
+  const handleForm = (e: React.FormEvent) => {
+    e.preventDefault();
+    addChar({...newChar});
+  };
+
   return (
     <>
       <h1 className="mb-6 text-5xl font-bold">Characters</h1>
@@ -26,7 +34,7 @@ export default function CharactersPage() {
       <CharactersTable charList={charList} removeChar={removeChar} />
 
       <h2 className="mt-6 mb-3 text-3xl font-bold">Add new character</h2>
-      <form>
+      <form onSubmit={(e) => handleForm(e)}>
         <div className="flex justify-between gap-8">
           <div className="mb-5 w-full">
             <Label className="text-gray-100 text-base font-normal">
@@ -35,7 +43,7 @@ export default function CharactersPage() {
             <input
               className="mt-1 bg-gray-700 border placeholder-gray-400 text-gray-100 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
               type="text"
-              id="email"
+              id="charName"
               placeholder={charPlaceholder.name}
               value={newChar?.name}
               onChange={(e) => setNewChar({...newChar, name: e.target.value})}
@@ -50,7 +58,7 @@ export default function CharactersPage() {
             <input
               className="mt-1 bg-gray-700 border placeholder-gray-400 text-gray-100 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
               type="text"
-              id="email"
+              id="charAge"
               placeholder={charPlaceholder.age.toString()}
               value={newChar?.age}
               onChange={(e) => setNewChar({...newChar, age: +e.target.value})}
@@ -65,16 +73,17 @@ export default function CharactersPage() {
           </Label>
           <textarea
             className="mt-1 bg-gray-700 border placeholder-gray-400 text-gray-100 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-            id="email"
+            id="charDesc"
             placeholder={charPlaceholder.description}
             value={newChar?.description}
             onChange={(e) => setNewChar({...newChar, description: e.target.value})}
+            rows={3}
             required
           />
         </div>
         <Button
           className="mt-8 w-full bg-blue-700 hover:bg-blue-600 disabled:bg-blue-700 disabled:hover:bg-blue-700 transition-all"
-          onClick={() => addChar({ ...newChar })}
+          type="submit"
         >
           Add new character
         </Button>
