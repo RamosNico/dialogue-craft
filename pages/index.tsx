@@ -25,7 +25,9 @@ export default function Home() {
       </Button>
 
       {data && (
-        <pre className="max-w-[70ch] whitespace-pre-wrap leading-9">{data}</pre>
+        <div className="bg-slate-600 p-4 rounded-lg">
+          <pre className="max-w-[70ch] whitespace-pre-wrap leading-9">{data}</pre>
+        </div>
       )}
     </div>
   );
