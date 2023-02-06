@@ -9,9 +9,6 @@ interface FormProps {
   fetchData: (p: string) => void;
 }
 
-const examplePrompt =
-  "We have two persons:\n- Nicolas, age 26, an arrogant and romantic man\n- Melisa, age 24, a sensitive and talkative woman\nWrite me a conversation between these two persons for a movie script in the style where they are a couple discussing what they are having for dinner, he calls her honey and she calls him sweetie. Where they end up deciding to eat hot dogs.";
-
 const DialogForm: FC<FormProps> = ({ isLoading, fetchData }) => {
   const { charList } = useCharacters();
   const [charAmount, setCharAmount] = useState(1);
@@ -89,7 +86,7 @@ const DialogForm: FC<FormProps> = ({ isLoading, fetchData }) => {
           onChange={(e) => setDialogDesc(e.target.value)}
           name="dialogDesc"
           id="dialogDesc"
-          placeholder="They are arguing because Julia and David are married, but David is having an romantic adventure with Alfonso, while they are having tea and there is an hurricane happening."
+          placeholder="They are arguing because Julia and David are married, but David is having an romantic adventure with Alfonso, while there is a hurricane happening outside."
           rows={5}
           required
         ></textarea>
