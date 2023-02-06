@@ -17,6 +17,8 @@ Then you can use them and make them interact as you wish describing a situation 
 
 - [TailwindCSS](https://tailwindcss.com) - A utility-first CSS framework for rapid UI development.
 
+- [Flowbite](https://flowbite.com/) - An open-source component libraries built on top of TailwindCSS.
+
 - [co:here API](https://cohere.ai/) - An API for generating text based on a given prompt.
 
 ## Check it deployed
