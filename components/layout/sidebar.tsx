@@ -80,7 +80,7 @@ const Sidebar = () => {
               </Link>
             </li>
           </ul>
-          <Link className="absolute bottom-3 text-gray-200 hover:text-cyan-500 transition-all" href="https://nicolas-ramos.com" target="_blank">
+          <Link className="absolute bottom-3 text-gray-200 hover:text-cyan-500 transition-all" href="https://www.linkedin.com/in/wnramos/" target="_blank">
             <p className="ml-2 text-sm text-center">Developed by Nicolas Ramos</p>
           </Link>
         </div>
