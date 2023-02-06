@@ -1,9 +1,7 @@
-import cohere from "cohere-ai";
 import { useState } from "react";
 import axios from "axios";
 
 const useCohere = () => {
-  cohere.init(process.env.COHERE_KEY as string);
   const [data, setData] = useState("");
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -25,9 +23,9 @@ const useCohere = () => {
     setIsLoading(true);
     setData("");
     setError("");
-    axios.post(process.env.COHERE_GENERATE_URL as string, body, {
+    axios.post(process.env.NEXT_PUBLIC_COHERE_GENERATE_URL as string, body, {
       headers: {
-        Authorization: `BEARER ${process.env.cohereKey}`,
+        Authorization: `BEARER ${process.env.NEXT_PUBLIC_COHERE_KEY}`,
         "Content-Type": "application/json",
         "Cohere-Version": "2022-12-06",
       },
