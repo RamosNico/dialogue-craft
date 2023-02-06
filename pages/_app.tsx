@@ -7,8 +7,8 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Hackathon</title>
-        <meta name="description" content="My project for the co:here hackathon" />
+        <title>Dialogue Craft</title>
+        <meta name="description" content="Make your movie dialogues using AI" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
         <link href="../styles/globals.css" />
