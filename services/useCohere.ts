@@ -15,7 +15,7 @@ const useCohere = () => {
       max_tokens: 416,
       temperature: 1.1,
       k: 0,
-      p: 0.75,
+      p: 0.6,
       frequency_penalty: 0,
       presence_penalty: 0,
       stop_sequences: [],
