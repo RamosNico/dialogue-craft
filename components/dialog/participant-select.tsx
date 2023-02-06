@@ -5,11 +5,10 @@ import Character from "@/models/character";
 interface IProps {
   n: number,
   charList: Character[],
-  charHandler: (n: number, id: number) => void,
-  selectedChars: object
+  charHandler: (n: number, id: number) => void
 };
 
-const ParticipantSelect: FC<IProps> = ({ n, charList, charHandler, selectedChars }) => {
+const ParticipantSelect: FC<IProps> = ({ n, charList, charHandler }) => {
   return (
     <div key={`character-${n}`}>
       <Label className="text-gray-100 text-base font-normal">
@@ -20,8 +19,9 @@ const ParticipantSelect: FC<IProps> = ({ n, charList, charHandler, selectedChars
         name={`charSelect-${n}`}
         id={`charSelect-${n}`}
         onChange={(e) => charHandler(n, +e.target.value)}
+        defaultValue="default"
       >
-        <option disabled selected>Select a character</option>
+        <option disabled value="default">Select a character</option>
         {charList.map((char) => (
           <option key={`char-${char.id}`} value={char.id}>
             {char.name}
