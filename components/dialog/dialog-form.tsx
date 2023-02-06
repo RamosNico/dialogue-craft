@@ -2,7 +2,6 @@ import useCharacters from "@/services/useCharacters";
 import { Button, Spinner, Label } from "flowbite-react";
 import { FC, FormEvent, useState } from "react";
 import ParticipantSelect from "./participant-select";
-import Character from "@/models/character";
 
 interface FormProps {
   isLoading: boolean;
@@ -54,7 +53,7 @@ const DialogForm: FC<FormProps> = ({ isLoading, fetchData }) => {
         </select>
         <div className="mt-4 gap-y-4 grid xl:grid-cols-4 md:grid-cols-3">
           {[...Array(charAmount)].map((_, i) => (
-            <ParticipantSelect key={i + 1} n={i + 1} charList={charList} charHandler={handleChar} selectedChars={selectedChars}  />
+            <ParticipantSelect key={i + 1} n={i + 1} charList={charList} charHandler={handleChar} />
           ))}
         </div>
       </div>
