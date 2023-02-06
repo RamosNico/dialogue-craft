@@ -11,12 +11,12 @@ const CharactersTable: FC<TableProps> = ({ charList, removeChar }) => {
   return (
     <Table>
       <Table.Head className="text-gray-100">
-        <Table.HeadCell className="bg-slate-700">Name</Table.HeadCell>
-        <Table.HeadCell className="bg-slate-700">Age</Table.HeadCell>
-        <Table.HeadCell className="bg-slate-700 grow">
+        <Table.HeadCell className="bg-slate-700 w-2/12">Name</Table.HeadCell>
+        <Table.HeadCell className="bg-slate-700 w-1/12">Age</Table.HeadCell>
+        <Table.HeadCell className="bg-slate-700 w-8/12">
           Description
         </Table.HeadCell>
-        <Table.HeadCell className="bg-slate-700 shrink">Remove</Table.HeadCell>
+        <Table.HeadCell className="bg-slate-700 w-1/12">Remove</Table.HeadCell>
       </Table.Head>
 
       <Table.Body className="divide-y text-gray-100">
