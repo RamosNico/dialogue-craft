@@ -1,7 +1,7 @@
 import { Table } from "flowbite-react";
 import Character from "@/models/character";
 
-type TableProps = {
+interface TableProps {
   charList: Character[];
   onRemoveChar: (id: number) => void;
 };
