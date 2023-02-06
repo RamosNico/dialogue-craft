@@ -28,11 +28,20 @@ export default function CharactersPage() {
 
   return (
     <>
-      <h1 className="mb-6 text-5xl font-bold">Characters</h1>
+      <h1 className="mb-4 text-5xl font-bold">Characters</h1>
       <section>
-        <p className="mb-4">Here's a list with your current characters:</p>
+        <p className="mb-4 max-w-[70ch]">
+          Below you can find a list with all your available characters. This
+          list will be stored in your Local Storage, so you do not need to worry
+          if you remove or add some and want to come back later.
+        </p>
         <CharactersTable charList={charList} removeChar={removeChar} />
-        <p className="mt-3 w-fit text-gray-300 text-sm cursor-pointer hover:text-cyan-400 transition-all" onClick={resetChars}>Click here to restart the characters list</p>
+        <p
+          className="mt-3 w-fit text-gray-300 text-sm cursor-pointer hover:text-cyan-400 transition-all"
+          onClick={resetChars}
+        >
+          Click here to reset the characters list
+        </p>
       </section>
 
       <section>
@@ -40,7 +49,7 @@ export default function CharactersPage() {
         <form onSubmit={(e) => handleForm(e)}>
           <div className="flex justify-between gap-8">
             <div className="mb-5 w-full">
-              <Label className="text-gray-100 text-base font-normal">
+              <Label htmlFor="charName" className="text-gray-100 text-base font-normal">
                 Character's name
               </Label>
               <input
@@ -49,13 +58,15 @@ export default function CharactersPage() {
                 id="charName"
                 placeholder={charPlaceholder.name}
                 value={newChar?.name}
-                onChange={(e) => setNewChar({ ...newChar, name: e.target.value })}
+                onChange={(e) =>
+                  setNewChar({ ...newChar, name: e.target.value })
+                }
                 required
               />
             </div>
 
             <div className="mb-5 w-full">
-              <Label className="text-gray-100 text-base font-normal">
+              <Label htmlFor="charAge" className="text-gray-100 text-base font-normal">
                 Character's age
               </Label>
               <input
@@ -71,17 +82,15 @@ export default function CharactersPage() {
           </div>
 
           <div className="mb-5">
-            <Label className="text-gray-100 text-base font-normal">
-              Character's description
+            <Label htmlFor="charDesc" className="text-gray-100 text-base font-normal">
+            Character's description <span className="text-sm text-gray-300">(It is recommended to start with something like 'a man...')</span>
             </Label>
             <textarea
               className="mt-1 bg-gray-700 border placeholder-gray-400 text-gray-100 text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full p-2.5"
               id="charDesc"
               placeholder={charPlaceholder.description}
               value={newChar?.description}
-              onChange={(e) =>
-                setNewChar({ ...newChar, description: e.target.value })
-              }
+              onChange={(e) => setNewChar({ ...newChar, description: e.target.value })}
               rows={3}
               required
             />
