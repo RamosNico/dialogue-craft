@@ -1,14 +1,14 @@
-import { FC } from "react";
 import { Label } from "flowbite-react";
 import Character from "@/models/character";
 
-interface IProps {
+interface ParticipantSelectProps {
   n: number,
   charList: Character[],
   charHandler: (n: number, id: number) => void
 };
 
-const ParticipantSelect: FC<IProps> = ({ n, charList, charHandler }) => {
+const ParticipantSelect = (props: ParticipantSelectProps) => {
+  const { n, charList, charHandler } = props;
   return (
     <div key={`character-${n}`}>
       <Label className="text-gray-100 text-base font-normal">
