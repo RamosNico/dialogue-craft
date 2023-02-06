@@ -1,4 +1,3 @@
-import { FC } from "react";
 import { Table } from "flowbite-react";
 import Character from "@/models/character";
 
@@ -7,7 +6,8 @@ type TableProps = {
   onRemoveChar: (id: number) => void;
 };
 
-const CharactersTable: FC<TableProps> = ({ charList, onRemoveChar }) => {
+const CharactersTable = (props: TableProps) => {
+  const { charList, onRemoveChar } = props;
   return (
     <Table>
       <Table.Head className="text-gray-100">

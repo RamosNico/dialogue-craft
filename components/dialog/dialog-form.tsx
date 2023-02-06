@@ -9,7 +9,8 @@ interface FormProps {
   fetchData: (p: string) => void;
 }
 
-const DialogForm: FC<FormProps> = ({ isLoading, fetchData }) => {
+const DialogForm = (props: FormProps) => {
+  const { isLoading, fetchData } = props;
   const { charList } = useCharacters();
   const [charAmount, setCharAmount] = useState(1);
   const [selectedChars, setSelectedChars] = useState({});
