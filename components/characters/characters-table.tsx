@@ -4,10 +4,10 @@ import Character from "@/models/character";
 
 type TableProps = {
   charList: Character[];
-  removeChar: (id: number) => void;
+  onRemoveChar: (id: number) => void;
 };
 
-const CharactersTable: FC<TableProps> = ({ charList, removeChar }) => {
+const CharactersTable: FC<TableProps> = ({ charList, onRemoveChar }) => {
   return (
     <Table>
       <Table.Head className="text-gray-100">
@@ -30,7 +30,7 @@ const CharactersTable: FC<TableProps> = ({ charList, removeChar }) => {
             <Table.Cell>
               <svg
                 className="w-6 h-6 ml-3 cursor-pointer hover:stroke-red-600 transition-all"
-                onClick={() => removeChar(char.id)}
+                onClick={() => onRemoveChar(char.id)}
                 fill="none"
                 stroke="currentColor"
                 strokeWidth={1.5}

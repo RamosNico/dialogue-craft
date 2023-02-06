@@ -43,7 +43,7 @@ const useCharacters = () => {
     });
   };
 
-  const removeChar = (id: Character["id"]) => {
+  const onRemoveChar = (id: Character["id"]) => {
     return setCharList((prev) => {
       const newArr = prev.filter((char) => char.id !== id);
       localStorage.setItem("characters", JSON.stringify(newArr));
@@ -56,7 +56,7 @@ const useCharacters = () => {
     localStorage.setItem("characters", JSON.stringify(initialList));
   }
 
-  return { charList, addChar, removeChar, resetChars };
+  return { charList, addChar, onRemoveChar, resetChars };
 };
 
 export default useCharacters;

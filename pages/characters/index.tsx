@@ -7,7 +7,7 @@ import { useState } from "react";
 interface NewChar extends Omit<Character, "id"> {}
 
 export default function CharactersPage() {
-  const { charList, addChar, removeChar, resetChars } = useCharacters();
+  const { charList, addChar, onRemoveChar, resetChars } = useCharacters();
   const [newChar, setNewChar] = useState<NewChar>({
     name: "",
     age: undefined,
@@ -35,7 +35,7 @@ export default function CharactersPage() {
           list will be stored in your Local Storage, so you do not need to worry
           if you remove or add some and want to come back later.
         </p>
-        <CharactersTable charList={charList} removeChar={removeChar} />
+        <CharactersTable charList={charList} onRemoveChar={onRemoveChar} />
         <p
           className="mt-3 w-fit text-gray-300 text-sm cursor-pointer hover:text-cyan-400 transition-all"
           onClick={resetChars}
