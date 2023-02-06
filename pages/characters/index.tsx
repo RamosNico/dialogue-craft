@@ -16,7 +16,7 @@ export default function CharactersPage() {
 
   const charPlaceholder = {
     name: "Charlie",
-    age: 24,
+    age: 42,
     description:
       "A man who just came to this world from an outer one and does not remember anything.",
   };
