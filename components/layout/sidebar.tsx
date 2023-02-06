@@ -1,4 +1,6 @@
 import Link from "next/link";
+import CharacterIcon from "./sidebar-icons/character-icon";
+import HomeIcon from "./sidebar-icons/home-icon";
 
 const Sidebar = () => {
   return (
@@ -38,21 +40,7 @@ const Sidebar = () => {
                 className="flex items-center p-2 text-base font-normal text-gray-100 rounded-lg hover:bg-slate-700 transition-all"
                 href="/"
               >
-                <svg
-                  aria-hidden
-                  className="flex-shrink-0 w-6 h-6 text-gray-100 transition duration-75 group-hover:text-gray-100 dark:group-hover:text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.0"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
-                  ></path>
-                </svg>
+                <HomeIcon />
                 <span className="ml-3">Home</span>
               </Link>
             </li>
@@ -61,19 +49,7 @@ const Sidebar = () => {
                 href="/characters"
                 className="flex items-center p-2 text-base font-normal text-gray-100 rounded-lg hover:bg-slate-700 transition-all"
               >
-                <svg
-                  aria-hidden
-                  className="flex-shrink-0 w-6 h-6 text-gray-100 transition duration-75 group-hover:text-gray-100 dark:group-hover:text-white"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                    clipRule="evenodd"
-                  ></path>
-                </svg>
+                <CharacterIcon />
                 <span className="flex-1 ml-3 whitespace-nowrap">
                   Characters
                 </span>
