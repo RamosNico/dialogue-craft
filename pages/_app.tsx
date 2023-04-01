@@ -1,11 +1,16 @@
 import Head from "next/head";
-import "@/styles/globals.css";
+import { useState } from "react";
+import { createBrowserSupabaseClient } from '@supabase/auth-helpers-nextjs'
+import { SessionContextProvider, Session } from '@supabase/auth-helpers-react'
 import type { AppProps } from "next/app";
 import Sidebar from "@/components/layout/sidebar";
+import "@/styles/globals.css";
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps }: AppProps<{initialSession: Session}>) {
+  const [supabase] = useState(() => createBrowserSupabaseClient());
+
   return (
-    <>
+    <SessionContextProvider supabaseClient={supabase} initialSession={pageProps.initialSession}>
       <Head>
         <title>Dialogue Craft</title>
         <meta name="description" content="Make your movie dialogues using AI" />
@@ -20,6 +25,6 @@ export default function App({ Component, pageProps }: AppProps) {
           <Component {...pageProps} />
         </div>
       </main>
-    </>
+    </SessionContextProvider>
   );
 }

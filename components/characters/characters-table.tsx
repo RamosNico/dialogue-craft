@@ -30,13 +30,13 @@ const CharactersTable = (props: TableProps) => {
             <Table.Cell>
               <svg
                 className="w-6 h-6 ml-3 cursor-pointer hover:stroke-red-600 transition-all"
-                onClick={() => onRemoveChar(char.id)}
+                onClick={() => onRemoveChar(char.id as number)}
                 fill="none"
                 stroke="currentColor"
                 strokeWidth={1.5}
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
+                aria-hidden
               >
                 <path
                   strokeLinecap="round"

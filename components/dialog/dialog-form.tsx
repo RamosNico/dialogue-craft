@@ -3,15 +3,17 @@ import { Button, Spinner, Label } from "flowbite-react";
 import { FC, FormEvent, useState } from "react";
 import ParticipantSelect from "./participant-select";
 import Character from "@/models/character";
+import { Session } from "@supabase/supabase-js";
 
 interface FormProps {
+  session: Session | "guest";
   isLoading: boolean;
   fetchData: (p: string) => void;
 }
 
 const DialogForm = (props: FormProps) => {
-  const { isLoading, fetchData } = props;
-  const { charList } = useCharacters();
+  const { session, isLoading, fetchData } = props;
+  const { charList } = useCharacters(session);
   const [charAmount, setCharAmount] = useState(1);
   const [selectedChars, setSelectedChars] = useState({});
   const [dialogDesc, setDialogDesc] = useState("");

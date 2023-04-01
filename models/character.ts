@@ -1,5 +1,5 @@
 export default interface Character {
-  id: number;
+  id?: number;
   name: string;
   age: number | undefined;
   description: string;

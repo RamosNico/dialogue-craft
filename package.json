@@ -6,10 +6,15 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "supabase:update-types": "supabase gen types typescript --project-id ipnqlynukstyhcvmdjgo > types/supabase.ts"
   },
   "dependencies": {
     "@next/font": "13.1.5",
+    "@supabase/auth-helpers-nextjs": "^0.5.4",
+    "@supabase/auth-helpers-react": "^0.3.1",
+    "@supabase/auth-ui-react": "^0.2.7",
+    "@supabase/supabase-js": "^2.7.1",
     "@types/node": "18.11.18",
     "@types/react": "18.0.27",
     "@types/react-dom": "18.0.10",
@@ -27,6 +32,7 @@
   "devDependencies": {
     "autoprefixer": "^10.4.13",
     "postcss": "^8.4.21",
+    "supabase": "^1.38.2",
     "tailwindcss": "^3.2.4"
   }
 }

@@ -1,7 +1,5 @@
 # Dialogue Craft
 A web application for creating characters and generating dialogue using Next.js, TypeScript, TailwindCSS, and the co:here API.
-
-A special thanks to [midudev](https://www.twitch.tv/midudev) for always creating great programming content moving the manitas, as well as hosting this hackathon along with [co:here](https://cohere.ai/).
 ## What is this application about?
 We will make use of the co:here API and YOUR creativity.
 
@@ -14,6 +12,8 @@ Then you can use them and make them interact as you wish describing a situation 
 - [TypeScript](https://www.typescriptlang.org) - A statically typed superset of JavaScript.
 
 - [Axios](https://axios-http.com/) - A Promise based HTTP client for the browser and node.js.
+
+- [Supabase](https://supabase.com/) - An open source Postgres database and Authentication.
 
 - [TailwindCSS](https://tailwindcss.com) - A utility-first CSS framework for rapid UI development.
 

@@ -1,8 +1,13 @@
+import { useSession } from "@supabase/auth-helpers-react";
 import Link from "next/link";
 import CharacterIcon from "./sidebar-icons/character-icon";
 import HomeIcon from "./sidebar-icons/home-icon";
+import { LoginIcon } from "./sidebar-icons/login-icon";
+import { LogoutIcon } from "./sidebar-icons/logout-icon";
 
 const Sidebar = () => {
+  const session = useSession();
+
   return (
     <nav>
       <button
@@ -55,12 +60,39 @@ const Sidebar = () => {
                 </span>
               </Link>
             </li>
+            {!session && (
+              <li>
+                <Link
+                  className="flex items-center p-2 text-base font-normal text-gray-100 rounded-lg hover:bg-slate-700 transition-all"
+                  href="/login"
+                >
+                  <LoginIcon />
+                  <span className="ml-3">Login</span>
+                </Link>
+              </li>
+            )}
+            {session && (
+              <li>
+                <Link
+                  className="flex items-center p-2 text-base font-normal text-gray-100 rounded-lg hover:bg-slate-700 transition-all"
+                  href="/logout"
+                >
+                  <LogoutIcon />
+                  <span className="ml-3">Logout</span>
+                </Link>
+              </li>
+            )}
           </ul>
-          <Link className="absolute bottom-3 text-gray-200 hover:text-cyan-500 transition-all" href="https://www.linkedin.com/in/wnramos/" target="_blank">
-            <p className="ml-2 text-sm text-center">Developed by Nicolas Ramos</p>
+          <Link
+            className="absolute bottom-3 text-gray-200 hover:text-cyan-500 transition-all"
+            href="https://www.linkedin.com/in/wnramos/"
+            target="_blank"
+          >
+            <p className="ml-2 text-sm text-center">
+              Developed by Nicolas Ramos
+            </p>
           </Link>
         </div>
-
       </aside>
     </nav>
   );
