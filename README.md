@@ -11,7 +11,7 @@ Then you can use them and make them interact as you wish describing a situation 
 
 - [TypeScript](https://www.typescriptlang.org) - A statically typed superset of JavaScript.
 
-- [Axios](https://axios-http.com/) - A Promise based HTTP client for the browser and node.js.
+- [Axios](https://axios-http.com/) - A Promise based HTTP client for the browser and NodeJS.
 
 - [Supabase](https://supabase.com/) - An open source Postgres database and Authentication.
 
